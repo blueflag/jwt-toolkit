@@ -1,3 +1,7 @@
 // @flow
 
-var hello = "go away";
+import Token from './Token';
+
+export {
+  Token
+}

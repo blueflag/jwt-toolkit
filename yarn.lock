@@ -2060,6 +2060,10 @@ ignore@^3.1.2:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.0.tgz#8d88f03c3002a0ac52114db25d2c673b0bf1e435"
 
+immutable@^3.8.1:
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"
+
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -2407,10 +2411,11 @@ jsdoc@^3.4.1:
     taffydb "2.6.2"
     underscore "~1.8.3"
 
-jsdonk@^0.1.6:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/jsdonk/-/jsdonk-0.1.7.tgz#97837bb7a1cf8697bd755bea42f5647ae15ecd78"
+jsdonk@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/jsdonk/-/jsdonk-0.2.3.tgz#8e37d9f8e963a863b007531891639acd44f5ed73"
   dependencies:
+    immutable "^3.8.1"
     prismjs "^1.5.1"
     react "^15.3.2"
     react-dom "^15.3.2"
@@ -2463,6 +2468,10 @@ jsx-ast-utils@^1.2.1:
   dependencies:
     acorn-jsx "^3.0.1"
     object-assign "^4.1.0"
+
+jwt-decode@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-2.1.0.tgz#d3079cef1689d82d56bbb7aedcfea28b12f0e36a"
 
 kind-of@^3.0.2:
   version "3.0.4"
