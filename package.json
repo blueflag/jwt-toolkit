@@ -1,0 +1,77 @@
+{
+  "name": "jwt-toolkit",
+  "version": "0.0.1",
+  "description": "Some functionality for dealing with JWT",
+  "main": "lib/index.js",
+  "repository": "github:blueflag/jwt-toolkit",
+  "scripts": {
+    "ava": "ava",
+    "build": "./node_modules/.bin/babel src --out-dir lib && npm run docs",
+    "check-coverage": "nyc check-coverage --branches 0.0  --functions 0.0 --lines 0",
+    "dev": "./node_modules/.bin/babel src -d lib --watch",
+    "docs": "jsdoc -c jsdoc-config.json",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "test": "nyc --report-dir=./coverage ava && yarn run check-coverage",
+    "test-all": "yarn run lint && yarn run flow && yarn run test"
+  },
+  "keywords": [
+    "jwt",
+    "retry",
+    "promise"
+  ],
+  "author": "Damien Clarke",
+  "license": "MIT",
+  "devDependencies": {
+    "app-module-path": "^1.1.0",
+    "ava": "^0.16.0",
+    "babel-cli": "^6.5.0",
+    "babel-core": "^6.5.0",
+    "babel-eslint": "^6.0.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-blueflag": "^0.0.1",
+    "babel-polyfill": "^6.5.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^2.7.0",
+    "eslint-config-blueflag": "^0.1.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "eslint-plugin-jsx-a11y": "^0.6.2",
+    "flow-bin": "^0.33.0",
+    "glob": "^7.0.6",
+    "jsdoc": "^3.4.1",
+    "jsdoc-babel": "^0.2.1",
+    "jsdonk": "^0.1.6",
+    "nyc": "^8.1.0",
+    "repeating": "^2.0.0"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": {
+      "presets": [
+        "blueflag"
+      ]
+    },
+    "files": [
+      "src/**/*-test.js"
+    ]
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "src/**/*-test.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "extension": [
+      ".js",
+      ".jsx"
+    ],
+    "require": [
+      "babel-register"
+    ]
+  }
+}
