@@ -124,7 +124,7 @@ function JWTRequest(requestFunction: RequestFunction, renewTokenFunction: RenewT
 
 /**
  * A function that is called when a request returns an error. Using the error info provided you can then makes a request to get a new JWT.
- * This function must return a promise containing the new JWT string.
+ * This function should return a promise containing the new JWT string, or a falsey value if you don't want to renew the token.
  *
  * @typedef RenewTokenFunction
  * @param {*} err The error payload for the original request. Use the info within to determine if you should renew your token.
