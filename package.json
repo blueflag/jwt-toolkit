@@ -1,6 +1,6 @@
 {
   "name": "jwt-toolkit",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some functionality for dealing with JWT",
   "main": "lib/index.js",
   "repository": "github:blueflag/jwt-toolkit",
