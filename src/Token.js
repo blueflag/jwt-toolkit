@@ -15,17 +15,17 @@ import JWTDecode from 'jwt-decode';
  * Token.isValid("NOT A TOKEN");
  * // returns false
  *
- * @param {String} token - JWT string
+ * @param {string} token - JWT string
  * @returns {boolean} A boolean indicating if the token is valid (true) or not (false)
  */
 
-function isValid(token: String): boolean {
-  try {
-    JWTDecode(token);
-  } catch(e) {
-    return false;
-  }
-  return true;
+function isValid(token: string): boolean {
+    try {
+        JWTDecode(token);
+    } catch(e) {
+        return false;
+    }
+    return true;
 }
 
 /**
@@ -37,19 +37,18 @@ function isValid(token: String): boolean {
  * import Token from 'jwt-toolkit';
  * Token.isExpired("eyJhbGciOiJIU...");
  *
- * @param {String} token - JWT string
+ * @param {string} token - JWT string
  * @returns {boolean} A boolean indicating if the token is expired / invalid (true) or has time remaining (false)
  */
 
-function isExpired(token: String): boolean {
-  try {
-    const decoded: Object = jwt_decode(token);
-  } catch(e) {
-    return true;
-  }
-
-  const time: Number = Math.floor((new Date).getTime() / 1000);
-  return decoded.exp < time;
+function isExpired(token: string): boolean {
+    try {
+        const decoded: Object = JWTDecode(token);
+        const time: number = Math.floor((new Date).getTime() / 1000);
+        return decoded.exp < time;
+    } catch(e) {
+        return true;
+    }
 }
 
 /**
@@ -61,18 +60,18 @@ function isExpired(token: String): boolean {
  * Token.asHeaders("eyJhbGciOiJIU...");
  * // returns { Authorization: 'Bearer eyJhbGciOiJIU...' }
  *
- * @param {String} token - JWT string
+ * @param {string} token - JWT string
  * @returns {Object} Headers object with JWT as authorization header
  */
 
-function asHeaders(token: String): Object {
-  return {
-    Authorization: `Bearer ${token}`
-  };
+function asHeaders(token: string): Object {
+    return {
+        Authorization: `Bearer ${token}`
+    };
 }
 
 export default {
-  isValid,
-  isExpired,
-  asHeaders
+    isValid,
+    isExpired,
+    asHeaders
 }
