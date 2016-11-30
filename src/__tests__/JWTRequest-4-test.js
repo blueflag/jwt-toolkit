@@ -35,7 +35,6 @@ test('jwt request does try-fail-renew-retry with multiple queries all waiting fo
             // add small delay to token renewal response, so the second JWTRequest is fired before this completes, forcing it to wait
             return new Promise((resolve) => setTimeout(() => resolve("new jwt"), 100));
         }
-        return null;
     };
 
     const requestPromise: Promise<*> = JWTRequest(requestFunction, renewTokenFunction, "original jwt");

@@ -23,7 +23,6 @@ test('jwt request calls request function and handles token renewal and retry ðŸ‘
             fakeRenew();
             return new Promise((resolve) => resolve("new jwt"));
         }
-        return null;
     };
 
     const requestPromise: Promise<*> = JWTRequest(requestFunction, renewTokenFunction, "original jwt");

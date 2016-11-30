@@ -19,7 +19,6 @@ test('jwt request calls request function and handles success correctly 👍👍�
             fakeRenew();
             return new Promise((resolve) => resolve("new jwt"));
         }
-        return null;
     };
 
     const requestPromise: Promise<*> = JWTRequest(requestFunction, renewTokenFunction, "(im a jwt unicorn!)>🦄");

@@ -20,7 +20,6 @@ test('jwt request will reject the original promise if token renewal fails', (tt)
             // pretend the token renewal has also failed
             return new Promise((resolve, reject) => reject(new Error("snakes! oh no! 🐍🐍🐍")));
         }
-        return null;
     };
 
     const requestPromise: Promise<*> = JWTRequest(requestFunction, renewTokenFunction, "original jwt");

@@ -20,7 +20,6 @@ test('jwt request will reject the original promise if the request with a renewed
             fakeRenew();
             return new Promise((resolve) => resolve("new jwt"));
         }
-        return null;
     };
     
     const requestPromise: Promise<*> = JWTRequest(requestFunction, renewTokenFunction, "original jwt");

@@ -90,10 +90,10 @@ function makeJWTRequest(requestFunction: RequestFunction, renewTokenFunction: Re
  * };
  *
  * const renewTokenFunction: Function = (err: *): ?Promise<string> => {
+ *     // example: in this case the server indicates that your token has expired (and your coolRequest has failed) by returning a 401 error
  *     if(err && err.status == 401) {
- *         return renewMyToken();
+ *         return renewMyTokenRequest();
  *     }
- *     return null;
  * };
  *
  * JWTRequest(requestFunction, renewTokenFunction, "myTokenStringHere");
@@ -123,11 +123,12 @@ function JWTRequest(requestFunction: RequestFunction, renewTokenFunction: RenewT
  */
 
 /**
- * A function that makes a request to get a new JWT. It must return a promise containing the new JWT string. 
+ * A function that is called when a request returns an error. Using the error info provided you can then makes a request to get a new JWT.
+ * This function must return a promise containing the new JWT string.
  *
  * @typedef RenewTokenFunction
  * @param {*} err The error payload for the original request. Use the info within to determine if you should renew your token.
- * @return {Promise<string>?} A promise that should be resolved / rejected when your new token request resolves / rejects, or null if you don't want to renew the token.
+ * @return {Promise<string>?} A promise that should be resolved / rejected when your new token request resolves / rejects, or a falsey value if you don't want to renew the token.
  */
 
 export default JWTRequest;
